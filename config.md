@@ -95,6 +95,7 @@ Remote Address R2: 10.4.4.1
 **R1 CR**
 
 1. Ip -> routes -> +
+
 Ke R2
 - dst address 192.168.2.0/24
 - gateway 12.12.12.2
@@ -106,6 +107,7 @@ Ke R3
 **R2 KJ**
 
 1. Ip -> routes -> +
+
 Ke R1
 - dst address 192.168.1.0/24
 - gateway 12.12.12.1
@@ -117,6 +119,7 @@ Ke R3
 **R3 KHI**
 
 1. Ip -> routes -> +
+
 Ke R1
 - dst address 192.168.1.0/24
 - gateway 12.12.12.1
