@@ -1,3 +1,5 @@
+# Konfigurasi IP
+
 R1 Citra
 
 1. hubungkan router ke internet menggunakan dhcp Client
