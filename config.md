@@ -46,7 +46,7 @@ apabila status bound berarti sudah terkoneksi
 3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
-# Konfigurasi IPIP
+# Konfigurasi IP-in-IP (IPIP)
 
 R1 Citra
 

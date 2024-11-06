@@ -18,6 +18,8 @@ Jarkom Lanjut UTS
 
 ## Analisis
 
+IP-in-IP (IPIP)
+
 Berikut adalah analisis komunikasi antar jaringan berdasarkan topologi:
 
 1. **R1 CR ke R2 KJ:**
