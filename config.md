@@ -1,94 +1,119 @@
 R1 Citra
 
-1. Tambahkan Ip address
+1. hubungkan router ke internet menggunakan dhcp Client
+   ip -> dhcp client -> + -> ether 1 -> klik Ok
+
+apabila status bound berarti sudah terkoneksi
+
+2. Tambahkan Ip address
    ip->addresses -> +
    ip 1, 192.168.1.1/24 -> Ether 2
-   ip 2, 11.11.11.1 -> Ether 3
-   ip 3, 12.12.12.1 -> Ether 4
+   ip 2, 12.12.12.1 -> IPIP Tunnel
 
-2. Buat Dhcp Server untuk Ether 2
+3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
 R2 KJ
 
-1. Tambahkan Ip address
+1. hubungkan router ke internet menggunakan dhcp Client
+   ip -> dhcp client -> + -> ether 1 -> klik Ok
+
+apabila status bound berarti sudah terkoneksi
+
+2. Tambahkan Ip address
    ip->addresses -> +
    ip 1, 192.168.2.1/24 -> Ether 2
-   ip 2, 10.10.10.1 -> Ether 3
-   ip 3, 12.12.12.2 -> Ether 4
+   ip 2, 12.12.12.2/29 -> IPIP Tunnel
+   IP 3, 11.11.11.1/29 -> IPIP Tunnel
 
-2. Buat Dhcp Server untuk Ether 2
+3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
 R3 KHI
 
-1. Tambahkan Ip address
+1. hubungkan router ke internet menggunakan dhcp Client
+   ip -> dhcp client -> + -> ether 1 -> klik Ok
+
+apabila status bound berarti sudah terkoneksi
+
+2. Tambahkan Ip address
    ip->addresses -> +
    ip 1, 192.168.3.1/24 -> Ether 2
-   ip 2, 10.10.10.2 -> Ether 3
-   ip 3, 11.11.11.2 -> Ether 4
+   ip 2, 11.11.11.2 -> IPIP Tunnel
 
-2. Buat Dhcp Server untuk Ether 2
+3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
-# Routing RIP
+# Konfigurasi IPIP
 
 R1 Citra
 
-1. Konfigurasi Routing RIP
-   Routing -> RIP -> + Interface
+1. Untuk menambahkan interface IPIP Tunnel
 
-- interface Ether 3 -> receive v1-2 -> send v1-2 -> ok
-- interface Ether 4 -> receive v1-2 -> send v1-2 -> ok
+- buka menu Interface > IP Tunnel > Add :
 
-2. Tambahkan Network yang menjadi ip address pada router yang telah di petakan
-   Routing -> RIP -> Networks -> +
+Local address : 10.5.5.1
+Remote Address R2 : 10.5.5.2
 
-- Address 192.168.1.0
-- Address 11.11.11.0
-- Address 12.12.12.0
+- buka menu Interface > IP Tunnel > Add :
 
-3. Pilih tab Neighbours untuk memasukan ip port yang terhubung di tetangga
-
-Neighbours -> + 11.11.11.2
-Neighbours -> + 12.12.12.2
+Local address : 10.5.5.1
+Remote Address R3: 10.4.4.2
 
 R2 KJ
 
-1. Konfigurasi Routing RIP
-   Routing -> RIP -> + Interface
+1. Untuk menambahkan interface IPIP Tunnel
 
-- interface Ether 3 -> receive v1-2 -> send v1-2 -> ok
-- interface Ether 4 -> receive v1-2 -> send v1-2 -> ok
+- buka menu Interface > IP Tunnel > Add :
 
-2. Tambahkan Network yang menjadi ip address pada router yang telah di petakan
-   Routing -> RIP -> Networks -> +
+Local address : 10.5.5.2
+Remote Address R1 : 10.5.5.1
 
-- Address 192.168.2.0
-- Address 10.10.10.0
-- Address 12.12.12.0
+- buka menu Interface > IP Tunnel > Add :
 
-3. Pilih tab Neighbours untuk memasukan ip port yang terhubung di tetangga
-
-Neighbours -> + 10.10.10.2
-Neighbours -> + 12.12.12.1
+Local address : 10.4.4.1
+Remote Address R3: 10.4.4.2
 
 R3 KHI
 
-1. Konfigurasi Routing RIP
-   Routing -> RIP -> + Interface
+1. Untuk menambahkan interface IPIP Tunnel
 
-- interface Ether 3 -> receive v1-2 -> send v1-2 -> ok
-- interface Ether 4 -> receive v1-2 -> send v1-2 -> ok
+- buka menu Interface > IP Tunnel > Add :
 
-2. Tambahkan Network yang menjadi ip address pada router yang telah di petakan
-   Routing -> RIP -> Networks -> +
+Local address : 10.4.4.2
+Remote Address R1 : 10.5.5.1
 
-- Address 192.168.3.0
-- Address 10.10.10.0
-- Address 11.11.11.0
+- buka menu Interface > IP Tunnel > Add :
 
-3. Pilih tab Neighbours untuk memasukan ip port yang terhubung di tetangga
+Local address : 10.4.4.2
+Remote Address R2: 10.4.4.1
 
-Neighbours -> + 10.10.10.1
-Neighbours -> + 11.11.11.1
+# Konfigurasi routing
+
+R1 CR
+
+1. Ip -> routes -> +
+
+- dst address 192.168.2.0/24
+- gateway 12.12.12.2
+
+- dst address 192.168.3.0/24
+- gateway 11.11.11.2
+
+R2 KJ
+
+1. Ip -> routes -> +
+
+- dst address 192.168.1.0/24
+- gateway 12.12.12.1
+
+- dst address 192.168.3.0/24
+- gateway 11.11.11.2
+
+1. Ip -> routes -> +
+
+- dst address 192.168.1.0/24
+- gateway 12.12.12.1
+
+- dst address 192.168.2.0/24
+- gateway 11.11.11.1
