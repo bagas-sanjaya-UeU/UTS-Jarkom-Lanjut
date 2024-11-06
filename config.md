@@ -1,6 +1,6 @@
 # Konfigurasi IP
 
-R1 Citra
+**R1 Citra**
 
 1. hubungkan router ke internet menggunakan dhcp Client
    ip -> dhcp client -> + -> ether 1 -> klik Ok
@@ -15,7 +15,7 @@ apabila status bound berarti sudah terkoneksi
 3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
-R2 KJ
+**R2 KJ**
 
 1. hubungkan router ke internet menggunakan dhcp Client
    ip -> dhcp client -> + -> ether 1 -> klik Ok
@@ -31,7 +31,7 @@ apabila status bound berarti sudah terkoneksi
 3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
 
-R3 KHI
+**R3 KHI**
 
 1. hubungkan router ke internet menggunakan dhcp Client
    ip -> dhcp client -> + -> ether 1 -> klik Ok
@@ -48,7 +48,7 @@ apabila status bound berarti sudah terkoneksi
 
 # Konfigurasi IP-in-IP (IPIP)
 
-R1 Citra
+**R1 Citra**
 
 1. Untuk menambahkan interface IPIP Tunnel
 
@@ -62,7 +62,7 @@ Remote Address R2 : 10.5.5.2
 Local address : 10.5.5.1
 Remote Address R3: 10.4.4.2
 
-R2 KJ
+**R2 KJ**
 
 1. Untuk menambahkan interface IPIP Tunnel
 
@@ -76,7 +76,7 @@ Remote Address R1 : 10.5.5.1
 Local address : 10.4.4.1
 Remote Address R3: 10.4.4.2
 
-R3 KHI
+**R3 KHI**
 
 1. Untuk menambahkan interface IPIP Tunnel
 
@@ -92,7 +92,7 @@ Remote Address R2: 10.4.4.1
 
 # Konfigurasi routing
 
-R1 CR
+**R1 CR**
 
 1. Ip -> routes -> +
 Ke R2
@@ -103,7 +103,7 @@ Ke R3
 - dst address 192.168.3.0/24
 - gateway 11.11.11.2
 
-R2 KJ
+**R2 KJ**
 
 1. Ip -> routes -> +
 Ke R1
@@ -114,7 +114,7 @@ Ke R3
 - dst address 192.168.3.0/24
 - gateway 11.11.11.2
 
-R3 KHI
+**R3 KHI**
 
 1. Ip -> routes -> +
 Ke R1
