@@ -53,4 +53,4 @@ Kampus KJ memainkan peran kunci dalam topologi ini sebagai pusat penghubung anta
 
 # Topologi
 
-![Charderra](Topologi.png)
+![Topologi](Topologi.png)

@@ -8,7 +8,7 @@ apabila status bound berarti sudah terkoneksi
 2. Tambahkan Ip address
    ip->addresses -> +
    ip 1, 192.168.1.1/24 -> Ether 2
-   ip 2, 12.12.12.1 -> IPIP Tunnel
+   ip 2, 12.12.12.1/29 -> IPIP Tunnel
 
 3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
@@ -39,7 +39,7 @@ apabila status bound berarti sudah terkoneksi
 2. Tambahkan Ip address
    ip->addresses -> +
    ip 1, 192.168.3.1/24 -> Ether 2
-   ip 2, 11.11.11.2 -> IPIP Tunnel
+   ip 2, 11.11.11.2/29 -> IPIP Tunnel
 
 3. Buat Dhcp Server untuk Ether 2
    ip -> Dhcp Server -> Dhcp Setup -> Next hingga selesai
