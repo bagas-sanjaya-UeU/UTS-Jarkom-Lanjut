@@ -112,10 +112,12 @@ R2 KJ
 - dst address 192.168.3.0/24
 - gateway 11.11.11.2
 
+R3 KHI
 1. Ip -> routes -> +
 
 - dst address 192.168.1.0/24
 - gateway 12.12.12.1
+
 
 - dst address 192.168.2.0/24
 - gateway 11.11.11.1
