@@ -1,4 +1,4 @@
-Essay
+# Essay
 
 1. Routing Static: Metode pengaturan jalur jaringan di mana administrator jaringan manual memasukkan informasi rute ke dalam tabel routing router. rute ini tidak berubah kecuali diubah secara manual. Ruting statis tidak memerlukan overhead tambahan dari protokol routing dinamis, yang membuatnya lebih sederhana dan dapat mengurangi latensi namun, itu kurang fleksibel dalam menangani perubahan topologi jaringan.
 
